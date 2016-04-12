@@ -5,10 +5,8 @@ export default Ember.Controller.extend({
 
     actions: {
         logout() {
-            this.store.unloadAll();
-            this.set('loggedUser', null);
             this.get('session').close();
-            this.transitionToRoute('login');
+            location.reload(true);
         }
     },
 
