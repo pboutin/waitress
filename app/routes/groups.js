@@ -3,10 +3,10 @@ import AuthRouteMixin from '../mixins/auth-route';
 
 export default Ember.Route.extend(AuthRouteMixin, {
     model() {
-        var self = this;
+        var applicationController = this.controllerFor('application');
 
         return new Promise(function(resolve) {
-            self.controllerFor('application').loadLoggedUser().then(function(user) {
+            applicationController.loadLoggedUser().then(function(user) {
                 Ember.RSVP.hash({
                     ownedGroups: user.get('ownedGroups'),
                     groups: user.get('groups')
