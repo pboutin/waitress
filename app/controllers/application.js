@@ -18,8 +18,8 @@ export default Ember.Controller.extend({
         return new Promise(function(resolveWith) {
             if (self.get('session.isAuthenticated')) {
                 self.store.query('user', {
-                    orderBy: 'userId',
-                    equalTo: self.get('session.uid')
+                    orderBy: 'email',
+                    equalTo: self.get('session.currentUser.email')
                 }).then(function(result) {
                     let user = result.get('firstObject');
                     self.set('loggedUser', user);

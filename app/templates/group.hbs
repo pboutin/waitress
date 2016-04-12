@@ -1,3 +1,21 @@
 <h1>Group</h1>
 
 <h3>{{model.name}}</h3>
+
+<h4>Invite someone</h4>
+{{input value=controller.inviteEmail placeholder="Email"}}
+
+<ul>
+    {{#each controller.inviteCandidates as |user|}}
+        <li>{{user.name}} <button class="btn btn-success" {{action 'invite' user}}>Invite</button></li>
+    {{/each}}
+</ul>
+
+<h3>Current Owner: {{model.owner.name}}</h3>
+
+<h3>Members</h3>
+<ul>
+    {{#each model.users as |user|}}
+        <li>{{user.name}}</li>
+    {{/each}}
+</ul>
