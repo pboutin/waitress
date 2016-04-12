@@ -2,13 +2,15 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType
+    location: config.locationType
 });
 
 Router.map(function() {
-  this.route('dishes', {path: '/'});
+  this.route('groups', {path: '/'});
+  this.route('dishes');
   this.route('login');
   this.route('signup');
+  this.route('group', {path: '/group/:id'});
 });
 
 export default Router;

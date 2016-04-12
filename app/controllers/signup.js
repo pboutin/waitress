@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
                         user.set('userId', authData.uid);
                         user.save().then(function() {
                             self.get('applicationController').loadLoggedUser();
-                            self.transitionToRoute('dishes');
+                            self.transitionToRoute('groups');
                         });
                     });
                 }

@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
                 password: this.get('password')
             }).then(function() {
                 self.get('applicationController').loadLoggedUser();
-                self.transitionToRoute('dishes');
+                self.transitionToRoute('groups');
             });
         }
     }

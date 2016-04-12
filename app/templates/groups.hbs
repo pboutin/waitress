@@ -1,0 +1,25 @@
+{{#if controller.newGroup}}
+    {{input value=controller.newGroup.name}}
+    <button class="btn btn-success" {{action 'saveNewGroup'}}>Save</button>
+    <button class="btn btn-danger" {{action 'cancelNewGroup'}}>Cancel</button>
+{{else}}
+    <button class="btn btn-primary" {{action 'createNewGroup'}}>Create new group</button>
+{{/if}}
+
+<h1>Owned groups</h1>
+
+<ul>
+    {{#each controller.ownedGroups as |group|}}
+        <li>{{#link-to 'group' group}}{{group.name}}{{/link-to}}</li>
+    {{/each}}
+</ul>
+
+<h1>Groups</h1>
+
+<ul>
+    {{#each controller.groups as |group|}}
+        <li>{{#link-to 'group' group}}{{group.name}}{{/link-to}}</li>
+    {{/each}}
+</ul>
+
+{{outlet}}

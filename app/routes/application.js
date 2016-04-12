@@ -5,6 +5,6 @@ export default Ember.Route.extend({
         return this.get("session").fetch().catch(function() {});
     },
     setupController(controller) {
-        controller.loadLoggedUser();
+        return controller.loadLoggedUser();
     }
 });
