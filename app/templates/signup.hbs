@@ -1,0 +1,20 @@
+<h1>Signup</h1>
+
+{{input value=model.name placeholder="full name"}}
+{{input value=model.email placeholder="email"}}
+
+{{input value=controller.password type="password" placeholder="password"}}
+{{input value=controller.passwordConfirmation type="password" placeholder="password"}}
+
+{{#unless controller.passwordVerification}}
+    <h3>The passwords aren't matching</h3>
+{{/unless}}
+
+<code>{{controller.captchaOne}} + {{controller.captchaTwo}} = ?</code>
+{{input value=controller.captcha}}
+
+{{#unless controller.captchaVerification}}
+    <h3>The captcha is not correct</h3>
+{{/unless}}
+
+<button class="btn btn-primary" disabled={{isNotValid}} {{action 'signup'}}>Signup</button>

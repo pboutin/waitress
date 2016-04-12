@@ -1,3 +1,22 @@
-<h2 id="title" class="text-fancy">Welcome to Waitress</h2>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand text-fancy" href="#">Waitress</a>
+        </div>
 
-{{outlet}}
+        <ul class="nav navbar-nav">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+        </ul>
+        {{#if controller.loggedUser}}
+            <p class="navbar-text navbar-right">
+                Hello {{controller.foobar}} {{controller.loggedUser.name}}
+                <button class="btn btn-sm btn-primary" {{action 'logout'}}>Logout</button>
+            </p>
+        {{/if}}
+    </div>
+</nav>
+
+<div class="container">
+    {{outlet}}
+</div>
