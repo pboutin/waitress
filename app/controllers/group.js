@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    applicationController: Ember.inject.controller('application'),
+
     inviteEmail: '',
     inviteCandidates: null,
+
+    newDish: null,
 
     actions: {
         invite(user) {
@@ -15,6 +19,28 @@ export default Ember.Controller.extend({
             user.save();
 
             this.get('inviteCandidates').removeObject(user);
+        },
+        addDish() {
+            let dish = this.store.createRecord('dish');
+            dish.set('submitter', this.get('applicationController.loggedUser'));
+            dish.set('group', this.get('model'));
+            this.set('newDish', dish);
+        },
+        saveDish() {
+            var self = this;
+            var loggedUser = this.get('applicationController.loggedUser');
+            var currentGroup = this.get('model');
+            var dish = this.get('newDish');
+
+            dish.save().then(function(savedDish) {
+                loggedUser.get('submittedDishes').pushObject(savedDish);
+                loggedUser.save();
+
+                currentGroup.get('dishes').pushObject(savedDish);
+                currentGroup.save();
+
+                self.set('newDish', null);
+            });
         }
     },
 

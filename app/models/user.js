@@ -5,6 +5,7 @@ export default DS.Model.extend({
     email: DS.attr('string'),
     userId: DS.attr('string'),
 
-    ownedGroups: DS.hasMany('group', {async: true, inverse: 'owner'}),
-    groups: DS.hasMany('group', {async: true, inverse: 'users'})
+    ownedGroups: DS.hasMany('Group', {async: true, inverse: 'owner'}),
+    groups: DS.hasMany('Group', {async: true, inverse: 'users'}),
+    submittedDishes: DS.hasMany('Dish', {async: true})
 });

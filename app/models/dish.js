@@ -5,6 +5,7 @@ export default DS.Model.extend({
     notes: DS.attr('string'),
     pictureUrl: DS.attr('string'),
 
-    user: DS.belongsTo('User'),
+    group: DS.belongsTo('Group'),
+    submitter: DS.belongsTo('User'),
     pins: DS.hasMany('Dish')
 });
