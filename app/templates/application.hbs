@@ -5,7 +5,9 @@
         </div>
 
         <ul class="nav navbar-nav">
-            <li><a href="#">Link 1</a></li>
+            {{#link-to "groups" tagName="li"}}
+                <a href={{view.href}}>Your groups</a>
+            {{/link-to}}
             <li><a href="#">Link 2</a></li>
         </ul>
         {{#if loggedUser}}

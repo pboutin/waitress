@@ -5,10 +5,15 @@ export default Ember.Route.extend(AuthRouteMixin, {
     model: function(params) {
         return this.store.find('group', params.id);
     },
+    setupController(controller) {
+        this._super(...arguments);
+        controller.set('newDish', null);
+    },
     deactivate: function() {
-        let newDish = this.controllerFor('group').get('newDish');
+        var newDish = this.controllerFor('group').get('newDish');
+
         if (newDish) {
-            newDish.rollback();
+            newDish.rollbackAttributes();
         }
     }
 });
