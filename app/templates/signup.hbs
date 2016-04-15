@@ -3,17 +3,17 @@
 {{input value=model.name placeholder="full name"}}
 {{input value=model.email placeholder="email"}}
 
-{{input value=controller.password type="password" placeholder="password"}}
-{{input value=controller.passwordConfirmation type="password" placeholder="password"}}
+{{input value=password type="password" placeholder="password"}}
+{{input value=passwordConfirmation type="password" placeholder="password"}}
 
-{{#unless controller.passwordVerification}}
+{{#unless passwordVerification}}
     <h3>The passwords aren't matching</h3>
 {{/unless}}
 
-<code>{{controller.captchaOne}} + {{controller.captchaTwo}} = ?</code>
-{{input value=controller.captcha}}
+<code>{{captchaOne}} + {{captchaTwo}} = ?</code>
+{{input value=captcha}}
 
-{{#unless controller.captchaVerification}}
+{{#unless captchaVerification}}
     <h3>The captcha is not correct</h3>
 {{/unless}}
 

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Firebase from 'firebase';
 import ENV from '../config/environment';
 
 export default Ember.Controller.extend({

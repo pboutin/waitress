@@ -8,9 +8,9 @@
             <li><a href="#">Link 1</a></li>
             <li><a href="#">Link 2</a></li>
         </ul>
-        {{#if controller.loggedUser}}
+        {{#if loggedUser}}
             <p class="navbar-text navbar-right">
-                Hello {{controller.foobar}} {{controller.loggedUser.name}}
+                Hello {{foobar}} {{loggedUser.name}}
                 <button class="btn btn-sm btn-primary" {{action 'logout'}}>Logout</button>
             </p>
         {{/if}}

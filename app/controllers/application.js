@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
     loadLoggedUser() {
         var self = this;
 
-        return new Promise(function(resolveWith) {
+        return new Ember.RSVP.Promise(function(resolveWith) {
             if (self.get('session.isAuthenticated')) {
                 self.store.query('user', {
                     orderBy: 'email',

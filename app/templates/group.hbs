@@ -3,10 +3,10 @@
 <h3>{{model.name}}</h3>
 
 <h4>Invite someone</h4>
-{{input value=controller.inviteEmail placeholder="Email"}}
+{{input value=inviteEmail placeholder="Email"}}
 
 <ul>
-    {{#each controller.inviteCandidates as |user|}}
+    {{#each inviteCandidates as |user|}}
         <li>{{user.name}} <button class="btn btn-success" {{action 'invite' user}}>Invite</button></li>
     {{/each}}
 </ul>
