@@ -1,12 +1,14 @@
 import Ember from 'ember';
+import ImgurUpload from '../mixins/imgur-upload';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(ImgurUpload, {
     applicationController: Ember.inject.controller('application'),
 
     inviteEmail: '',
     inviteCandidates: null,
 
     newDish: null,
+    imageDataUrl: null,
 
     actions: {
         invite(user) {
@@ -32,14 +34,17 @@ export default Ember.Controller.extend({
             var currentGroup = this.get('model');
             var dish = this.get('newDish');
 
-            dish.save().then(function(savedDish) {
-                loggedUser.get('submittedDishes').pushObject(savedDish);
-                loggedUser.save();
+            this.dataUrlToImgur(this.get('imageDataUrl')).then(function(imageUrl) {
+                dish.set('imageUrl', imageUrl);
+                dish.save().then(function(savedDish) {
+                    loggedUser.get('submittedDishes').pushObject(savedDish);
+                    loggedUser.save();
 
-                currentGroup.get('dishes').pushObject(savedDish);
-                currentGroup.save();
+                    currentGroup.get('dishes').pushObject(savedDish);
+                    currentGroup.save();
 
-                self.set('newDish', null);
+                    self.set('newDish', null);
+                });
             });
         }
     },

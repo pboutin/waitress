@@ -25,6 +25,11 @@
 {{#if newDish}}
     {{input value=newDish.name}}
     {{textarea value=newDish.notes cols="80" rows="6"}}
+
+    {{image-picker dataUrl=imageDataUrl}}
+
+    <img src={{imageDataUrl}} alt="preview">
+
     <button class="btn btn-success" {{action 'saveDish'}}>Save</button>
 {{else}}
     <button class="btn btn-primary" {{action 'addDish'}}>New dish</button>
