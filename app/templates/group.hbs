@@ -37,6 +37,11 @@
 
 <ul>
     {{#each model.dishes as |dish|}}
-        <li>{{dish.name}}, submitted by {{dish.submitter.name}}</li>
+        <li>
+            {{dish.name}}, submitted by {{dish.submitter.name}}
+            {{#if dish.imageUrl}}
+                <img src={{dish.imageUrl}} alt="picture">
+            {{/if}}
+        </li>
     {{/each}}
 </ul>

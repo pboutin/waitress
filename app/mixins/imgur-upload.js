@@ -3,6 +3,7 @@ import ENV from '../config/environment';
 
 export default Ember.Mixin.create({
     dataUrlToImgur: function(rawDataUrl) {
+        var self = this;
         return new Ember.RSVP.Promise(function(resolveWith) {
             if ( ! rawDataUrl) {
                 resolveWith(null);
@@ -16,7 +17,7 @@ export default Ember.Mixin.create({
                     'Authorization': 'Client-ID ' + ENV.imgur.clientId
                 },
                 data: {
-                    image: this._trimDataUrl(rawDataUrl),
+                    image: self._trimDataUrl(rawDataUrl),
                     type: 'base64'
                 },
                 success: function(response) {

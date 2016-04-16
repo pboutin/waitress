@@ -22,7 +22,7 @@ module.exports = function(environment) {
         'frame-src': "'self' https://*.firebaseio.com",
         'font-src': "'self' http://fonts.gstatic.com",
         'style-src': "'self' http://fonts.googleapis.com",
-        'img-src': "'self' data:"
+        'img-src': "'self' data: http://i.imgur.com"
     },
     EmberENV: {
       FEATURES: {
