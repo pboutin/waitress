@@ -3,13 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     loggedUser: null,
 
-    actions: {
-        logout() {
-            this.get('session').close();
-            location.reload(true);
-        }
-    },
-
     loadLoggedUser() {
         var self = this;
 

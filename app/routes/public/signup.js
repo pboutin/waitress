@@ -1,11 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    beforeModel() {
-        if (this.get('session.isAuthenticated')) {
-            return this.transitionTo('groups');
-        }
-    },
     model() {
         return this.store.createRecord('user');
     },

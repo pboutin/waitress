@@ -1,3 +1,29 @@
 .text-fancy {
-    font-family: 'Great Vibes', cursive;
+    font-family: $font-family-fancy;
+}
+
+.background-cover {
+    background: url(../img/cover-bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+
+    &:after {
+        content: '';
+        background-color: rgba($brand-bg-primary, 0.80);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -99;
+    }
 }

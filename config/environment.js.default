@@ -13,6 +13,9 @@ module.exports = function(environment) {
         clientId: 'YOUR-CLIENT-ID',
         secret: 'YOUR-SECRET'
     },
+    i18n: {
+        defaultLocale: 'en'
+    },
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {

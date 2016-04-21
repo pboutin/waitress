@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            {{input value=email placeholder=(t "login.email") class="form-control"}}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            {{input value=password type="password" placeholder=(t "login.password") class="form-control"}}
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-block" {{action 'login'}}>
+            {{t "login.action"}}
+        </button>
+    </div>
+    <div class="col-md-2">
+        {{#link-to 'public.signup' class="btn btn-link btn-block"}}
+            {{t "login.create_an_account"}}
+        {{/link-to}}
+    </div>
+</div>

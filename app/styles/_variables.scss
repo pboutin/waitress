@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+@import url(https://fonts.googleapis.com/css?family=Alex+Brush);
 
 
 
@@ -19,11 +19,17 @@ $gray:                   #98978B !default;
 $gray-light:             #DFD7CA !default;
 $gray-lighter:           #F8F5F0 !default;
 
-$brand-primary:         #325D88 !default;
-$brand-success:         #93C54B !default;
-$brand-info:            #29ABE0 !default;
-$brand-warning:         #F47C3C !default;
-$brand-danger:          #d9534f !default;
+$brand-bg-primary:      #FFFCC4 !default;
+$brand-bg-secondary:    #CCCA9F !default;
+
+$brand-primary:         #E83117 !default;
+$brand-success:         #009393 !default;
+$brand-info:            #00585F !default;
+
+// Not used
+$brand-warning:         #f43ef2 !default;
+$brand-danger:          #f43ef2 !default;
+
 
 
 //== Scaffolding
@@ -36,7 +42,7 @@ $body-bg:               #fff !default;
 $text-color:            #3E3F3A !default;
 
 //** Global textual link color.
-$link-color:            $brand-success !default;
+$link-color:            $brand-primary !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 10%) !default;
 //** Link hover decoration.
@@ -46,7 +52,7 @@ $link-hover-decoration: underline !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-
+$font-family-fancy:       "Alex Brush", cursive !default;
 $font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.

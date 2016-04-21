@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Mixin.create({
+export default Ember.Route.extend({
     beforeModel() {
         if ( ! this.get('session.isAuthenticated')) {
-            return this.transitionTo('login');
+            return this.transitionTo('public.login');
         }
     }
 });

@@ -1,0 +1,55 @@
+<div class="form-group">
+    <label>{{t "signup.name"}}</label>
+    {{input value=model.name class="form-control"}}
+</div>
+<div class="form-group">
+    <label>{{t "signup.email"}}</label>
+    {{input value=model.email class="form-control"}}
+</div>
+
+<div class="form-group">
+    <label>{{t "signup.password"}}</label>
+    {{input value=password type="password" class="form-control"}}
+</div>
+
+<div class="form-group">
+    <label>{{t "signup.password_confirmation"}}</label>
+    {{input value=passwordConfirmation type="password" class="form-control"}}
+
+    {{#unless passwordVerification}}
+        <span class="help-block">{{t "signup.passwords_not_matching"}}</span>
+    {{/unless}}
+</div>
+
+<div class="form-group">
+    <label>
+        {{captchaOne}} + {{captchaTwo}} = ?
+    </label>
+    {{input value=captcha class="form-control"}}
+
+    {{#unless captchaVerification}}
+        <span class="help-block">{{t "signup.captcha_incorrect"}}</span>
+    {{/unless}}
+</div>
+
+{{#unless requiredVerification}}
+    <div class="alert alert-info">
+        <p>{{t "signup.required_fields"}}</p>
+    </div>
+
+    <hr>
+{{/unless}}
+
+<div class="row">
+    <div class="col-md-8">
+        <button class="btn btn-primary btn-block" disabled={{isNotValid}} {{action 'signup'}}>
+            {{t "signup.action"}}
+        </button>
+    </div>
+    <div class="col-md-4">
+        {{#link-to "public.login" class="btn btn-default btn-block"}}
+            {{t "signup.cancel"}}
+        {{/link-to}}
+    </div>
+</div>
+

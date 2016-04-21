@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import AuthRouteMixin from '../mixins/auth-route';
 
-export default Ember.Route.extend(AuthRouteMixin, {
+export default Ember.Route.extend({
     model() {
         var applicationController = this.controllerFor('application');
 

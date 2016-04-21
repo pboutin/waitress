@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ImgurUpload from '../mixins/imgur-upload';
+import ImgurUpload from '../../mixins/imgur-upload';
 
 export default Ember.Controller.extend(ImgurUpload, {
     applicationController: Ember.inject.controller('application'),
