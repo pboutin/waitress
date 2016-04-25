@@ -1,3 +1,25 @@
-<button class="btn btn-default" {{action 'logout'}}>Logout</button>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="header-navbar">
+            <a href="#" class="navbar-brand">
+                Waitress
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-right">
+                <p class="navbar-text">
+                    {{gravatar-image email=applicationController.loggedUser.email size=35 class="img-circle"}}
+                    {{t 'auth.hello'}}
+                    {{applicationController.loggedUser.name}}
+                </p>
+                <button class="btn btn-primary btn-sm navbar-btn" {{action 'logout'}}>
+                    {{t 'auth.logout'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
 
 {{outlet}}

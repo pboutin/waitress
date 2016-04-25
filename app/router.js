@@ -13,7 +13,7 @@ Router.map(function() {
 
     this.route('auth', function() {
         this.route('dishes');
-        this.route('groups');
+        this.route('groups', {path: '/'});
         this.route('group', {path: '/group/:id'});
     });
 });

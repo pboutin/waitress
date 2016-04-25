@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        {{#link-to 'auth.group' group}}
+            {{group.name}}
+        {{/link-to}}
+
+        <p>Owner {{group.owner.name}}</p>
+    </div>
+</div>

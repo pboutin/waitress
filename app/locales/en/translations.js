@@ -1,6 +1,11 @@
 export default {
+    // Views
     "public": {
         "catch_phrase": "What are we going to eat tonight ?"
+    },
+    "auth": {
+        "hello": "Hello",
+        "logout": "Logout"
     },
     "login": {
         "email": "Email address",
@@ -18,5 +23,10 @@ export default {
         "action": "Sign up",
         "cancel": "Cancel",
         "required_fields": "Every fields are required."
+    },
+    "groups": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "create_new_group": "Create a new group"
     }
 };

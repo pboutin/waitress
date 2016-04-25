@@ -375,9 +375,9 @@ $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             $gray-dark !default;
-$navbar-default-bg:                $gray-darker !default;
-$navbar-default-border:            $gray-darker !default;
+$navbar-default-color:             $gray-lighter !default;
+$navbar-default-bg:                $brand-info !default;
+$navbar-default-border:            $brand-info !default;
 
 // Navbar links
 $navbar-default-link-color:                $gray !default;
