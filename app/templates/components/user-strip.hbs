@@ -1,0 +1,13 @@
+<div class="user-strip">
+    {{#each users as |user|}}
+        {{#tooltip-container text=user.name class="user"}}
+            {{gravatar-image email=user.email size=40}}
+        {{/tooltip-container}}
+    {{/each}}
+
+    {{#if primaryUser}}
+        {{#tooltip-container text=primaryUser.name suffix=(t 'user-strip.owner') class="user user-primary"}}
+            {{gravatar-image email=primaryUser.email size=40}}
+        {{/tooltip-container}}
+    {{/if}}
+</div>

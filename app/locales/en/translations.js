@@ -28,5 +28,23 @@ export default {
         "save": "Save",
         "cancel": "Cancel",
         "create_new_group": "Create a new group"
+    },
+    "group": {
+        "manage_members": "Manage the members"
+    },
+    "users": {
+        "owner": "Owner",
+        "remove": "Remove",
+        "add_a_member": "Add a member",
+        "email": "Email address",
+        "search": "Search",
+        "already_in_group": "This user is already in this group.",
+        "add_to_group": "Add to group",
+        "close": "Close"
+    },
+
+    // Components
+    "user-strip": {
+        "owner": "Owner"
     }
 };

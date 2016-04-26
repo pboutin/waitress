@@ -4,24 +4,10 @@ import ImgurUpload from '../../mixins/imgur-upload';
 export default Ember.Controller.extend(ImgurUpload, {
     applicationController: Ember.inject.controller('application'),
 
-    inviteEmail: '',
-    inviteCandidates: null,
-
     newDish: null,
     imageDataUrl: null,
 
     actions: {
-        invite(user) {
-            let group = this.get('model');
-
-            user.get('groups').pushObject(group);
-            group.get('users').pushObject(user);
-
-            group.save();
-            user.save();
-
-            this.get('inviteCandidates').removeObject(user);
-        },
         addDish() {
             let dish = this.store.createRecord('dish');
             dish.set('submitter', this.get('applicationController.loggedUser'));
@@ -47,21 +33,6 @@ export default Ember.Controller.extend(ImgurUpload, {
                 });
             });
         }
-    },
-
-    inviteEmailObserver: function() {
-        Ember.run.debounce(this, this._fetchCandidates, 1000);
-    }.observes('inviteEmail'),
-
-    _fetchCandidates: function() {
-        var self = this;
-
-        this.store.query('user', {
-            orderBy: 'email',
-            equalTo: this.get('inviteEmail')
-        }).then(function(result) {
-            self.set('inviteCandidates', result);
-        });
     }
 });
 

@@ -6,16 +6,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-    this.route('public', {path: '/'}, function() {
-        this.route('login', {path: '/'});
-        this.route('signup');
-    });
+  this.route('public', {path: '/'}, function() {
+      this.route('login', {path: '/'});
+      this.route('signup');
+  });
 
-    this.route('auth', function() {
-        this.route('dishes');
-        this.route('groups', {path: '/'});
-        this.route('group', {path: '/group/:id'});
-    });
+  this.route('auth', function() {
+      this.route('dishes');
+      this.route('groups', {path: '/'});
+      this.route('group', {path: '/group/:id'}, function() {
+          this.route('users', {path: 'members'});
+      });
+  });
 });
 
 export default Router;

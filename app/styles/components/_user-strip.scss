@@ -1,0 +1,28 @@
+.user-strip {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+
+    div.user {
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+
+        border: 2px solid $brand-info;
+        margin-right: -10px;
+
+        &.user-primary {
+            border-color: $brand-primary;
+
+            &+.tooltip {
+                .tooltip-inner {
+                    background-color: $brand-primary;
+                }
+                .tooltip-arrow {
+                    border-top-color: $brand-primary;
+                }
+            }
+        }
+    }
+
+}

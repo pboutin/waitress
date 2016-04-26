@@ -69,10 +69,10 @@ export default Ember.Controller.extend({
 
     isNotValid: function() {
         let result = true;
-        result &= this.get('requiredVerfication');
+        result &= this.get('requiredVerification');
         result &= this.get('passwordVerification');
         result &= this.get('captchaVerification');
         return ! result;
-    }.property('passwordVerification', 'captchaVerification')
+    }.property('requiredVerification', 'passwordVerification', 'captchaVerification')
 });
 

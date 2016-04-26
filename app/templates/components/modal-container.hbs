@@ -1,0 +1,15 @@
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {{#if title}}
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        {{title}}
+                    </h4>
+                </div>
+            {{/if}}
+
+            {{yield}}
+        </div>
+    </div>
+</div>

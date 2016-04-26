@@ -1,0 +1,57 @@
+{{#modal-container}}
+    <div class="modal-body">
+        <ul class="list-unstyled">
+            <li class="margin-bottom">
+                {{gravatar-image email=model.owner.email size=35 class="img-circle"}}
+                {{model.owner.name}}
+                <span class="text-primary">
+                    {{t 'users.owner'}}
+                </span>
+            </li>
+            {{#each model.users as |user|}}
+                <li class="margin-bottom">
+                    {{gravatar-image email=user.email size=35 class="img-circle"}}
+                    {{user.name}}
+                    <button class="btn btn-info btn-xs" {{action 'removeUser' user}}>
+                        {{t 'users.remove'}}
+                    </button>
+                </li>
+            {{/each}}
+        </ul>
+
+        <hr>
+
+        <h4>{{t 'users.add_a_member'}}</h4>
+
+        <div class="input-group form-group">
+            {{input value=emailInput placeholder=(t 'users.email') class="form-control"}}
+            <span class="input-group-btn">
+        <button class="btn btn-primary" {{action 'searchUser'}}>
+            {{t 'users.search'}}
+        </button>
+    </span>
+        </div>
+
+        {{#if foundUser}}
+            <div class="form-group">
+                {{gravatar-image email=foundUser.email size=32 class="img-circle"}}
+                {{foundUser.name}}
+
+                {{#if foundUserAlreadyInGroup}}
+                    <span class="label label-default">
+                        {{t 'users.already_in_group'}}
+                    </span>
+                {{else}}
+                    <button class="btn btn-primary btn-sm" {{action 'addUser'}}>
+                        {{t 'users.add_to_group'}}
+                    </button>
+                {{/if}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="modal-footer">
+        {{#link-to 'auth.group' class="btn btn-default"}}
+            {{t 'users.close'}}
+        {{/link-to}}
+    </div>
+{{/modal-container}}

@@ -1,24 +1,14 @@
-<h1>Group</h1>
+<h1 class="text-fancy text-lg">
+    {{model.name}}
+</h1>
 
-<h3>{{model.name}}</h3>
+{{user-strip primaryUser=model.owner users=model.users}}
 
-<h4>Invite someone</h4>
-{{input value=inviteEmail placeholder="Email"}}
+{{#link-to 'auth.group.users' class="btn btn-primary"}}
+    {{t 'group.manage_members'}}
+{{/link-to}}
 
-<ul>
-    {{#each inviteCandidates as |user|}}
-        <li>{{user.name}} <button class="btn btn-success" {{action 'invite' user}}>Invite</button></li>
-    {{/each}}
-</ul>
-
-<h3>Current Owner: {{model.owner.name}}</h3>
-
-<h3>Members</h3>
-<ul>
-    {{#each model.users as |user|}}
-        <li>{{user.name}}</li>
-    {{/each}}
-</ul>
+{{outlet}}
 
 <h3>Dishes</h3>
 
@@ -28,7 +18,7 @@
 
     {{image-picker dataUrl=imageDataUrl}}
 
-    <img src={{imageDataUrl}} alt="preview">
+    <img src={{imageDataUrl}} alt="Preview">
 
     <button class="btn btn-success" {{action 'saveDish'}}>Save</button>
 {{else}}
