@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     _fetchGravatar: function() {
         var email = this.get('email');
         var size = this.get('size');
-        var gravatarUrl = 'http://www.gravatar.com/avatar/' + this._md5(email) + '?d=mm&s=' + size;
+        var gravatarUrl = 'http://www.gravatar.com/avatar/' + this._md5(email) + '?d=identicon&s=' + size;
         this.$().attr('src', gravatarUrl);
     },
 
