@@ -1,4 +1,9 @@
 .grid-item {
     width: 250px;
     margin-bottom: 10px;
+    cursor: pointer;
+
+    .user-strip {
+        margin-top: -5px;
+    }
 }

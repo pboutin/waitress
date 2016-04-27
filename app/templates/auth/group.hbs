@@ -12,4 +12,7 @@
 
 <hr>
 
-{{dishes-container dishes=displayedDishes}}
+{{dishes-container
+    dishes=displayedDishes
+    onSelect=(action 'like')
+    onClear=(action 'clearLikes')}}

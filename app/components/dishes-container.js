@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     dishes: [],
+    onClick: null,
 
     filter: '',
     $container: null,
@@ -11,12 +12,17 @@ export default Ember.Component.extend({
             this.get('$container')
                 .isotope('shuffle');
         },
-        sort() {
-            this.get('$container')
-                .isotope('updateSortData')
-                .isotope({
-                    sortBy: 'name'
-                });
+        sortByName() {
+            this._sortBy('name');
+        },
+        sortByLikes() {
+            this._sortBy('likes');
+        },
+        select(dish) {
+            this.get('onSelect')(dish);
+        },
+        clear() {
+            this.get('onClear')();
         }
     },
 
@@ -26,6 +32,10 @@ export default Ember.Component.extend({
             getSortData: {
                 name: function(element) {
                     return $(element).find('._name').text().toLowerCase();
+                },
+                likes: function(element) {
+                    console.log($(element).find('._avatar').length);
+                    return $(element).find('._avatar').length * -1;
                 }
             },
             masonry: {
@@ -66,5 +76,13 @@ export default Ember.Component.extend({
                 }
             });
         }
-    }.observes('filter')
+    }.observes('filter'),
+
+    _sortBy: function(mode) {
+        this.get('$container')
+            .isotope('updateSortData')
+            .isotope({
+                sortBy: mode
+            });
+    }
 });

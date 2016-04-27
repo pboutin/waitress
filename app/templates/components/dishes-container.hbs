@@ -3,12 +3,20 @@
         {{t 'dishes-container.new_dish'}}
     {{/link-to}}
 
+    <button class="btn btn-primary btn-sm" {{action 'clear'}}>
+        {{t 'dishes-container.clear_likes'}}
+    </button>
+
     <button class="btn btn-default btn-sm" {{action 'shuffle'}}>
         {{t 'dishes-container.shuffle'}}
     </button>
 
-    <button class="btn btn-default btn-sm" {{action 'sort'}}>
+    <button class="btn btn-default btn-sm" {{action 'sortByName'}}>
         {{t 'dishes-container.sort_by_name'}}
+    </button>
+
+    <button class="btn btn-default btn-sm" {{action 'sortByLikes'}}>
+        {{t 'dishes-container.sort_by_likes'}}
     </button>
 
     {{input
@@ -19,7 +27,7 @@
 
 <div class="grid">
     {{#each dishes as |dish|}}
-        <div class="panel panel-default grid-item">
+        <div class="panel panel-default grid-item" {{action 'select' dish}}>
             <div class="panel-body">
                 {{#if dish.imageUrl}}
                     <img src={{dish.imageUrl}} class="img-responsive img-rounded">
@@ -27,6 +35,7 @@
             </div>
             <div class="panel-footer">
                 <span class="_name">{{dish.name}}</span>
+                {{user-strip users=dish.likes size=30 class="pull-right"}}
             </div>
         </div>
     {{/each}}

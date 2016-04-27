@@ -57,6 +57,8 @@ export default {
         "new_dish": "New dish",
         "shuffle": "Shuffle",
         "sort_by_name": "Sort by name",
+        "sort_by_likes": "Sort by likes",
+        "clear_likes": "Clear your likes",
         "filter": "Filter"
     }
 };

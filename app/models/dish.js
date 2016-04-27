@@ -6,5 +6,5 @@ export default DS.Model.extend({
 
     group: DS.belongsTo('Group'),
     submitter: DS.belongsTo('User'),
-    pins: DS.hasMany('Dish')
+    likes: DS.hasMany('User', {async: true, inverse: 'likedDishes'})
 });

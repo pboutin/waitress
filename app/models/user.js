@@ -7,5 +7,6 @@ export default DS.Model.extend({
 
     ownedGroups: DS.hasMany('Group', {async: true, inverse: 'owner'}),
     groups: DS.hasMany('Group', {async: true, inverse: 'users'}),
-    submittedDishes: DS.hasMany('Dish', {async: true})
+    submittedDishes: DS.hasMany('Dish', {async: true, inverse: 'submitter'}),
+    likedDishes: DS.hasMany('Dish', {async: true, inverse: 'likes'})
 });
