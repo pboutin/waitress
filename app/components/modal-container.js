@@ -5,7 +5,8 @@ export default Ember.Component.extend({
 
     didInsertElement: function() {
         this.$('.modal').modal({
-            keyboard: false
+            keyboard: false,
+            backdrop: 'static'
         });
     },
 

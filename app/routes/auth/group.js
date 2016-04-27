@@ -7,12 +7,5 @@ export default Ember.Route.extend({
     setupController(controller) {
         this._super(...arguments);
         controller.set('newDish', null);
-    },
-    deactivate: function() {
-        var newDish = this.controllerFor('auth.group').get('newDish');
-
-        if (newDish) {
-            newDish.rollbackAttributes();
-        }
     }
 });

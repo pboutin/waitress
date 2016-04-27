@@ -1,0 +1,33 @@
+<div class="form-group">
+    {{#link-to 'auth.group.new-dish' class="btn btn-primary btn-sm"}}
+        {{t 'dishes-container.new_dish'}}
+    {{/link-to}}
+
+    <button class="btn btn-default btn-sm" {{action 'shuffle'}}>
+        {{t 'dishes-container.shuffle'}}
+    </button>
+
+    <button class="btn btn-default btn-sm" {{action 'sort'}}>
+        {{t 'dishes-container.sort_by_name'}}
+    </button>
+
+    {{input
+        value=filter
+        class="form-control input-inline input-sm"
+        placeholder=(t 'dishes-container.filter')}}
+</div>
+
+<div class="grid">
+    {{#each dishes as |dish|}}
+        <div class="panel panel-default grid-item">
+            <div class="panel-body">
+                {{#if dish.imageUrl}}
+                    <img src={{dish.imageUrl}} class="img-responsive img-rounded">
+                {{/if}}
+            </div>
+            <div class="panel-footer">
+                <span class="_name">{{dish.name}}</span>
+            </div>
+        </div>
+    {{/each}}
+</div>

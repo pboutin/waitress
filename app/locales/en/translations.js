@@ -32,6 +32,12 @@ export default {
     "group": {
         "manage_members": "Manage the members"
     },
+    "new-dish": {
+        "name": "Name",
+        "take_a_picture": "Take a picture",
+        "save": "Save",
+        "cancel": "Cancel"
+    },
     "users": {
         "owner": "Owner",
         "remove": "Remove",
@@ -46,5 +52,11 @@ export default {
     // Components
     "user-strip": {
         "owner": "Owner"
+    },
+    "dishes-container": {
+        "new_dish": "New dish",
+        "shuffle": "Shuffle",
+        "sort_by_name": "Sort by name",
+        "filter": "Filter"
     }
 };

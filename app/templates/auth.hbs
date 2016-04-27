@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="header-navbar">
-            <a href="#" class="navbar-brand">
+            {{#link-to 'auth.groups' class="navbar-brand"}}
                 Waitress
-            </a>
+            {{/link-to}}
         </div>
         <div class="collapse navbar-collapse">
             <div class="navbar-right">
@@ -19,7 +19,5 @@
         </div>
     </div>
 </nav>
-
-
 
 {{outlet}}

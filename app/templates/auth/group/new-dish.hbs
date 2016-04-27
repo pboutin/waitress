@@ -1,0 +1,23 @@
+{{#modal-container}}
+    <div class="modal-body">
+        <div class="form-group">
+            <label>{{t 'new-dish.name'}}</label>
+            {{input value=dish.name class="form-control"}}
+        </div>
+
+        <label class="btn btn-primary btn-block">
+            {{t 'new-dish.take_a_picture'}}
+            {{image-picker dataUrl=imageDataUrl class="display-none"}}
+        </label>
+
+        <img src={{imageDataUrl}} class="img-responsive">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" disabled={{isNotValid}} {{action 'save'}}>
+            {{t 'new-dish.save'}}
+        </button>
+        <button class="btn btn-default" {{action 'cancel'}}>
+            {{t 'new-dish.cancel'}}
+        </button>
+    </div>
+{{/modal-container}}

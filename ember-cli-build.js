@@ -21,7 +21,8 @@ module.exports = function(defaults) {
     // along with the exports of each module as its value.
 
     app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
-    app.import(app.bowerDirectory + '/masonry/dist/masonry.pkgd.js');
+    app.import(app.bowerDirectory + '/isotope/dist/isotope.pkgd.js');
+    app.import(app.bowerDirectory + '/imagesloaded/imagesloaded.pkgd.js');
 
     return app.toTree();
 };

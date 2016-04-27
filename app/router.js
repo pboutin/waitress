@@ -16,6 +16,7 @@ Router.map(function() {
       this.route('groups', {path: '/'});
       this.route('group', {path: '/group/:id'}, function() {
           this.route('users', {path: 'members'});
+          this.route('new-dish');
       });
   });
 });

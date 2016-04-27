@@ -10,28 +10,6 @@
 
 {{outlet}}
 
-<h3>Dishes</h3>
+<hr>
 
-{{#if newDish}}
-    {{input value=newDish.name}}
-    {{textarea value=newDish.notes cols="80" rows="6"}}
-
-    {{image-picker dataUrl=imageDataUrl}}
-
-    <img src={{imageDataUrl}} alt="Preview">
-
-    <button class="btn btn-success" {{action 'saveDish'}}>Save</button>
-{{else}}
-    <button class="btn btn-primary" {{action 'addDish'}}>New dish</button>
-{{/if}}
-
-<ul>
-    {{#each model.dishes as |dish|}}
-        <li>
-            {{dish.name}}, submitted by {{dish.submitter.name}}
-            {{#if dish.imageUrl}}
-                <img src={{dish.imageUrl}} alt="picture">
-            {{/if}}
-        </li>
-    {{/each}}
-</ul>
+{{dishes-container dishes=displayedDishes}}
