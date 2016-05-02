@@ -2,14 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     dishes: [],
-    onClick: null,
 
     filter: '',
-    $container: null,
+    $cardContainer: null,
 
     actions: {
         shuffle() {
-            this.get('$container')
+            this.get('$cardContainer')
                 .isotope('shuffle');
         },
         sortByName() {
@@ -18,8 +17,8 @@ export default Ember.Component.extend({
         sortByLikes() {
             this._sortBy('likes');
         },
-        select(dish) {
-            this.get('onSelect')(dish);
+        like(dish) {
+            this.get('onLike')(dish);
         },
         clear() {
             this.get('onClear')();
@@ -27,14 +26,13 @@ export default Ember.Component.extend({
     },
 
     didInsertElement: function() {
-        var $container = this.$('.grid').isotope({
+        var $cardContainer = this.$('.grid').isotope({
             itemSelector: '.grid-item',
             getSortData: {
                 name: function(element) {
                     return $(element).find('._name').text().toLowerCase();
                 },
                 likes: function(element) {
-                    console.log($(element).find('._avatar').length);
                     return $(element).find('._avatar').length * -1;
                 }
             },
@@ -44,32 +42,32 @@ export default Ember.Component.extend({
 
             }
         });
-        this.set('$container', $container);
+        this.set('$cardContainer', $cardContainer);
     },
 
     didRender: function() {
-        var $container = this.get('$container');
+        var $cardContainer = this.get('$cardContainer');
 
-        if (this.get('dishes').length > $container.isotope('getItemElements').length) {
-            $container.isotope('reloadItems');
-            $container.isotope();
+        if (this.get('dishes').length > $cardContainer.isotope('getItemElements').length) {
+            $cardContainer.isotope('reloadItems');
+            $cardContainer.isotope();
         }
 
-        $container.imagesLoaded().progress(function() {
-            $container.isotope('layout');
+        $cardContainer.imagesLoaded().progress(function() {
+            $cardContainer.isotope('layout');
         });
     },
 
     filterObserver: function() {
-        var $container = this.get('$container');
+        var $cardContainer = this.get('$cardContainer');
         var filterString = this.get('filter').toLowerCase();
 
         if ( ! filterString) {
-            $container.isotope({
+            $cardContainer.isotope({
                 filter: '*'
             });
         } else {
-            $container.isotope({
+            $cardContainer.isotope({
                 filter: function() {
                     var currentName = $(this).find('._name').text().toLowerCase();
                     return currentName.indexOf(filterString) > -1;
@@ -79,7 +77,7 @@ export default Ember.Component.extend({
     }.observes('filter'),
 
     _sortBy: function(mode) {
-        this.get('$container')
+        this.get('$cardContainer')
             .isotope('updateSortData')
             .isotope({
                 sortBy: mode

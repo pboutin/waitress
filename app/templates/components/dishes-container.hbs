@@ -18,7 +18,8 @@
     <button class="btn btn-default btn-sm" {{action 'sortByLikes'}}>
         {{t 'dishes-container.sort_by_likes'}}
     </button>
-
+</div>
+<div class="form-group">
     {{input
         value=filter
         class="form-control input-inline input-sm"
@@ -27,7 +28,7 @@
 
 <div class="grid">
     {{#each dishes as |dish|}}
-        <div class="panel panel-default grid-item" {{action 'select' dish}}>
+        <div class="panel panel-default grid-item" {{action 'like' dish}}>
             <div class="panel-body">
                 {{#if dish.imageUrl}}
                     <img src={{dish.imageUrl}} class="img-responsive img-rounded">

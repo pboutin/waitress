@@ -21,6 +21,21 @@ export default Ember.Controller.extend({
             loggedUser.save();
             dish.save();
         },
+        delete(dish) {
+            if ( ! confirm("Are you sure ?")) {
+                return;
+            }
+            let group = dish.get('group');
+            group.get('dishes').removeObject(dish);
+            group.get('content').save();
+
+            dish.get('likes').forEach(function(user) {
+                user.get('likedDishes').removeObject(dish);
+                user.save();
+            });
+
+            dish.deleteRecord();
+        },
         clearLikes() {
             var loggedUser = this.get('applicationController.loggedUser');
             this.get('model.dishes').forEach(function(dish) {
