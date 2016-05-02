@@ -2,20 +2,22 @@
     <div class="container-fluid">
         <div class="header-navbar">
             {{#link-to 'auth.groups' class="navbar-brand"}}
-                Waitress
+                Groups
             {{/link-to}}
         </div>
-        <div class="collapse navbar-collapse">
-            <div class="navbar-right">
-                <p class="navbar-text">
-                    {{gravatar-image email=applicationController.loggedUser.email size=35 class="img-circle"}}
-                    {{t 'auth.hello'}}
-                    {{applicationController.loggedUser.name}}
-                </p>
-                <button class="btn btn-primary btn-sm navbar-btn" {{action 'logout'}}>
+        <div class="navbar-right">
+            <p class="navbar-text visible-lg-block">
+                {{gravatar-image email=applicationController.loggedUser.email size=35 class="img-circle"}}
+                {{t 'auth.hello'}}
+                {{applicationController.loggedUser.name}}
+
+                <button class="btn btn-link btn-sm" {{action 'logout'}}>
                     {{t 'auth.logout'}}
                 </button>
-            </div>
+            </p>
+            <button class="btn btn-primary btn-sm navbar-btn pull-right hidden-lg" {{action 'logout'}}>
+                {{t 'auth.logout'}}
+            </button>
         </div>
     </div>
 </nav>

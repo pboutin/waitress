@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        {{#if newGroup}}
+{{#if newGroup}}
+    <div class="panel panel-default">
+        <div class="panel-body">
             <div class="form-inline">
                 <div class="form-group">
                     {{input value=newGroup.name placeholder="Name" class="form-control"}}
@@ -12,13 +12,14 @@
                     {{t 'groups.cancel'}}
                 </button>
             </div>
-        {{else}}
-            <button class="btn btn-primary btn-sm btn-block" {{action 'createNewGroup'}}>
-                {{t 'groups.create_new_group'}}
-            </button>
-        {{/if}}
+        </div>
     </div>
-</div>
+{{else}}
+    <button class="btn btn-primary btn-block" {{action 'createNewGroup'}}>
+        {{t 'groups.create_new_group'}}
+    </button>
+    <hr>
+{{/if}}
 
 {{#each displayedGroups as |group|}}
     {{group-card group=group}}

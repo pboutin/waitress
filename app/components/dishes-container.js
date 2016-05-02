@@ -39,7 +39,6 @@ export default Ember.Component.extend({
             masonry: {
                 columnWidth: 250,
                 gutter: 10
-
             }
         });
         this.set('$cardContainer', $cardContainer);
