@@ -21,6 +21,7 @@ export default Ember.Component.extend({
     },
 
     // https://css-tricks.com/snippets/javascript/javascript-md5/
+    /* jshint ignore:start */
     _md5: function (string) {
 
         function RotateLeft(lValue, iShiftBits) {
@@ -221,4 +222,5 @@ export default Ember.Component.extend({
 
         return temp.toLowerCase();
     }
+    /* jshint ignore:end */
 });

@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 
                 reader.onload = function (e) {
                     self.set('dataUrl', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(this.files[0]);
             }

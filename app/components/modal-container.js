@@ -11,6 +11,6 @@ export default Ember.Component.extend({
     },
 
     willDestroyElement: function() {
-        this.$('.modal').modal('hide')
+        this.$('.modal').modal('hide');
     }
 });

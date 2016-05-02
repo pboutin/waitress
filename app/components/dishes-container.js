@@ -30,10 +30,10 @@ export default Ember.Component.extend({
             itemSelector: '.grid-item',
             getSortData: {
                 name: function(element) {
-                    return $(element).find('._name').text().toLowerCase();
+                    return Ember.$(element).find('._name').text().toLowerCase();
                 },
                 likes: function(element) {
-                    return $(element).find('._avatar').length * -1;
+                    return Ember.$(element).find('._avatar').length * -1;
                 }
             },
             masonry: {
@@ -68,7 +68,7 @@ export default Ember.Component.extend({
         } else {
             $cardContainer.isotope({
                 filter: function() {
-                    var currentName = $(this).find('._name').text().toLowerCase();
+                    var currentName = Ember.$(this).find('._name').text().toLowerCase();
                     return currentName.indexOf(filterString) > -1;
                 }
             });
