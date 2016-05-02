@@ -1,9 +1,11 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        {{#link-to 'auth.group' group}}
-            {{group.name}}
-        {{/link-to}}
+{{#link-to 'auth.group' group}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4 class="pull-left">
+                {{group.name}}
+            </h4>
 
-        <p>Owner {{group.owner.name}}</p>
+            {{user-strip primaryUser=group.owner users=group.users class="pull-right"}}
+        </div>
     </div>
-</div>
+{{/link-to}}
