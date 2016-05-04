@@ -1,0 +1,26 @@
+<ul class="list-group dishes-list">
+    {{#each dishes as |dish|}}
+        <li class="list-group-item">
+            {{dish.name}}
+
+            <div class="dropdown pull-right">
+                <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    {{t 'dishes-list.actions'}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" {{action 'delete' dish}}>
+                            {{t 'dishes-list.delete'}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="btn btn-primary btn-sm pull-right" {{action 'like' dish}}>
+                {{if (arrayContains dish.likes loggedUser) (t 'dishes-list.unlike') (t 'dishes-list.like')}}
+                <span class="badge">{{dish.likes.length}}</span>
+            </button>
+        </li>
+    {{/each}}
+</ul>

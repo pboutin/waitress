@@ -8,8 +8,7 @@ export default Ember.Component.extend({
 
     actions: {
         shuffle() {
-            this.get('$cardContainer')
-                .isotope('shuffle');
+            this.get('$cardContainer').isotope('shuffle');
         },
         sortByName() {
             this._sortBy('name');
@@ -17,11 +16,9 @@ export default Ember.Component.extend({
         sortByLikes() {
             this._sortBy('likes');
         },
+
         like(dish) {
             this.get('onLike')(dish);
-        },
-        clear() {
-            this.get('onClear')();
         }
     },
 

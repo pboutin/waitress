@@ -33,7 +33,12 @@ export default {
         "create_new_group": "Create a new group"
     },
     "group": {
-        "manage_members": "Manage the members"
+        "manage_members": "Manage the members",
+        "are_you_sure_delete": "Are you sure you want to delete \"{{dish}}\" ?",
+        "new_dish": "New dish",
+        "clear_likes": "Clear your likes",
+        "switch_to_cards": "Go in cards display mode",
+        "switch_to_list": "Go in list display mode"
     },
     "new-dish": {
         "name": "Name",
@@ -57,11 +62,15 @@ export default {
         "owner": "Owner"
     },
     "dishes-container": {
-        "new_dish": "New dish",
         "shuffle": "Shuffle",
         "sort_by_name": "Sort by name",
         "sort_by_likes": "Sort by likes",
-        "clear_likes": "Clear your likes",
         "filter": "Filter"
+    },
+    "dishes-list": {
+        "actions": "Actions",
+        "delete": "Delete",
+        "unlike": "Unlike",
+        "like": "Like"
     }
 };

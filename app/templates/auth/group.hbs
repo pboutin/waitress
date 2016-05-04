@@ -12,7 +12,29 @@
 
 <hr>
 
-{{dishes-container
-    dishes=displayedDishes
-    onLike=(action 'like')
-    onClear=(action 'clearLikes')}}
+<div class="form-group">
+    {{#link-to 'auth.group.new-dish' class="btn btn-primary"}}
+        {{t 'group.new_dish'}}
+    {{/link-to}}
+
+    <button class="btn btn-primary" {{action 'clearLikes'}}>
+        {{t 'group.clear_likes'}}
+    </button>
+
+    <button class="btn btn-default visible-lg-inline-block" {{action 'switchDisplayMode'}}>
+        {{if isListDisplayMode (t 'group.switch_to_cards') (t 'group.switch_to_list')}}
+    </button>
+</div>
+
+{{#if isListDisplayMode}}
+    {{dishes-list
+        dishes=displayedDishes
+        loggedUser=applicationController.loggedUser
+        onLike=(action 'like')
+        onDelete=(action 'delete')}}
+{{else}}
+    {{dishes-isotope
+        dishes=displayedDishes
+        onLike=(action 'like')}}
+{{/if}}
+

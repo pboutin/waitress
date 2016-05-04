@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     applicationController: Ember.inject.controller('application'),
+    i18n: Ember.inject.service(),
 
-    newDish: null,
-    imageDataUrl: null,
+    displayMode: 'list',
 
     actions: {
         like(dish) {
@@ -22,9 +22,10 @@ export default Ember.Controller.extend({
             dish.save();
         },
         delete(dish) {
-            if ( ! confirm("Are you sure ?")) {
+            if ( ! confirm(this.get('i18n').t('group.are_you_sure_delete', { dish: dish.get('name') }))) {
                 return;
             }
+
             let group = dish.get('group');
             group.get('dishes').removeObject(dish);
             group.get('content').save();
@@ -47,13 +48,23 @@ export default Ember.Controller.extend({
                     dish.save();
                 }
             });
+        },
+        switchDisplayMode() {
+            let currentMode = this.get('displayMode');
+            this.set('displayMode', currentMode === 'list' ? 'isotope' : 'list');
         }
     },
 
     displayedDishes: function() {
-        return this.get('model.dishes').filter(function(dish) {
-            return ! dish.get('isNew');
-        });
-    }.property('model.dishes.@each')
+        return this.get('model.dishes')
+            .filter(function(dish) {
+                return ! dish.get('isNew');
+            })
+            .sortBy('name');
+    }.property('model.dishes.@each.name'),
+
+    isListDisplayMode: function() {
+        return this.get('displayMode') === 'list';
+    }.property('displayMode')
 });
 
