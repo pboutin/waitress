@@ -1,3 +1,7 @@
+{{#if isChrome}}
 <div class="container">
     {{outlet}}
 </div>
+{{else}}
+    <p class="lead text-center">{{t 'application.chrome_only'}}</p>
+{{/if}}

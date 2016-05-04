@@ -1,5 +1,8 @@
 export default {
     // Views
+    "application": {
+        "chrome_only": "Sorry, Waitress is only available for the Google Chrome browser at the moment."
+    },
     "public": {
         "catch_phrase": "What are we going to eat tonight ?"
     },

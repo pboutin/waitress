@@ -17,7 +17,7 @@ module.exports = function(environment) {
         defaultLocale: 'en'
     },
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     contentSecurityPolicy: {
         'default-src': "'none'",
         'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com https://api.imgur.com",
